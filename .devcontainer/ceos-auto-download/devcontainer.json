@@ -1,11 +1,17 @@
 {
   "name": "Arista AVD & Containerlab",
-  "image": "mcr.microsoft.com/devcontainers/python:3.10-bullseye",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12-bullseye",
+  
+  "containerEnv": {
+    // To automate the download, place your token here.
+    // To run the download manually later, leave this as an empty string.
+    "ARISTA_TOKEN": "" 
+  },
+
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
-  "envFile": ".devcontainer/.env",
-  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "postCreateCommand": "bash .devcontainer/ceos-auto-download/post-create.sh",
   "customizations": {
     "vscode": {
       "extensions": [
