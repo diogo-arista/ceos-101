@@ -1,0 +1,11 @@
+---
+- name: Add VLANs to device(s)
+  hosts: leaf1
+  tasks:
+    - name: Add VLANs
+      arista.eos.eos_vlans:
+        config:
+         - vlan_id: 10
+           name: VLAN10
+           state: active
+        state: merged

@@ -1,0 +1,23 @@
+---
+all:
+  vars:
+  # Section to connect via SSH CLI
+    ansible_connection: network_cli
+    ansible_user: admin
+    ansible_password: admin
+    ansible_network_os: eos
+    ansible_become: yes
+    ansible_become_method: enable
+  children:
+    FABRIC:
+      children:
+        SPINES:
+          hosts:
+            spine1:
+            spine2:
+        LEAFS:
+          hosts:
+            leaf1:
+            leaf2:
+            leaf3:
+            leaf4:
