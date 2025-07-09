@@ -1,8 +1,66 @@
+! Startup-config last modified at Wed Jul  9 15:42:52 2025 by admin
+! device: spine1 (cEOSLab, EOS-4.34.1F-42424637.4341F (engineering build))
+!
+aaa root nopassword
 aaa authentication policy local allow-nopassword-remote-login
 !
 username admin privilege 15 role network-admin nopassword
 !
-aaa root nopassword
+no service interface inactive port-id allocation disabled
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+hostname spine1
+!
+spanning-tree mode mstp
+!
+system l1
+   unsupported speed action error
+   unsupported error-correction action error
 !
 aaa authorization exec default local
 aaa authorization commands all default local
+!
+interface Ethernet1
+   no switchport
+   ip address 10.1.6.6/24
+!
+interface Ethernet2
+   no switchport
+   ip address 10.2.6.6/24
+!
+interface Ethernet3
+   no switchport
+   ip address 10.3.6.6/24
+!
+interface Ethernet4
+   no switchport
+   ip address 10.4.6.6/24
+!
+interface Ethernet5
+!
+interface Loopback0
+   ip address 6.6.6.6/32
+!
+interface Management0
+   ip address 172.16.20.6/24
+!
+ip routing
+!
+router bgp 67
+   neighbor 10.1.6.1 remote-as 12
+   neighbor 10.2.6.2 remote-as 12
+   neighbor 10.3.6.3 remote-as 3
+   neighbor 10.4.6.4 remote-as 4
+   network 6.6.6.6/32
+!
+router multicast
+   ipv4
+      software-forwarding kernel
+   !
+   ipv6
+      software-forwarding kernel
+!
+end

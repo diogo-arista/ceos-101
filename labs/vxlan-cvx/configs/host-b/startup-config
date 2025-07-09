@@ -1,5 +1,5 @@
-! Startup-config last modified at Wed Jul  9 15:31:25 2025 by root
-! device: leaf5 (cEOSLab, EOS-4.34.1F-42424637.4341F (engineering build))
+! Startup-config last modified at Wed Jul  9 15:31:12 2025 by root
+! device: host-b (cEOSLab, EOS-4.34.1F-42424637.4341F (engineering build))
 !
 aaa root nopassword
 aaa authentication policy local allow-nopassword-remote-login
@@ -12,7 +12,7 @@ transceiver qsfp default-mode 4x10G
 !
 service routing protocols model multi-agent
 !
-hostname leaf5
+hostname host-b
 !
 spanning-tree mode mstp
 !
@@ -25,24 +25,9 @@ aaa authorization commands all default local
 !
 interface Ethernet1
 !
-interface Ethernet2
-!
-interface Ethernet3
-!
-interface Ethernet4
-!
-interface Ethernet5
-!
 interface Management0
-   ip address 172.16.20.12/24
+   ip address 172.16.20.9/24
 !
 no ip routing
-!
-router multicast
-   ipv4
-      software-forwarding kernel
-   !
-   ipv6
-      software-forwarding kernel
 !
 end

@@ -7,26 +7,7 @@ topology:
   kinds:
     arista_ceos:
       image: "ceos:4.34.1F"
-  #    linux:
-  #      image: "ghcr.io/aristanetworks/aclabs/lab-base:python3.11-avd-v5.3.0-clab0.67.0-rev1.5"  
   nodes:
-#    tools-srv:
-#      kind: "linux"
-#      image: "ghcr.io/aristanetworks/aclabs/lab-base:python3.11-avd-v5.3.0-clab0.67.0\
-#        -rev1.5"
-#      mgmt-ipv4: 172.16.20.101
-#      labels:
-#        graph-posX: "516"
-#        graph-posY: "424"
-#        graph-groupLabelPos: bottom-center
-#    tools-srv2:
-#      kind: "linux"
-#      image: ghcr.io/aristanetworks/aclabs/host-ubuntu:rev1.0
-#      mgmt-ipv4: 172.16.20.102
-#      labels:
-#        graph-posX: "550"
-#        graph-posY: "424"
-#        graph-groupLabelPos: bottom-center
     leaf1:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.2
@@ -40,6 +21,9 @@ topology:
     leaf2:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.3
+      startup-config: "configs/leaf2/startup-config"
+      binds:
+        - configs/leaf2/ceos-config:/mnt/flash/ceos-config
       labels:
         graph-posX: "575"
         graph-posY: "305"
@@ -47,6 +31,9 @@ topology:
     leaf3:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.4
+      startup-config: "configs/leaf3/startup-config"
+      binds:
+        - configs/leaf3/ceos-config:/mnt/flash/ceos-config
       labels:
         graph-posX: "645"
         graph-posY: "305"
@@ -54,6 +41,9 @@ topology:
     leaf4:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.5
+      startup-config: "configs/leaf4/startup-config"
+      binds:
+        - configs/leaf4/ceos-config:/mnt/flash/ceos-config
       labels:
         graph-posX: "715"
         graph-posY: "305"
@@ -61,6 +51,9 @@ topology:
     spine1:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.6
+      startup-config: "configs/spine1/startup-config"
+      binds:
+        - configs/spine1/ceos-config:/mnt/flash/ceos-config
       labels:
         graph-posX: "545"
         graph-posY: "225"
@@ -68,41 +61,59 @@ topology:
     spine2:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.7
+      startup-config: "configs/spine2/startup-config"
+      binds:
+        - configs/spine2/ceos-config:/mnt/flash/ceos-config
       labels:
         graph-posX: "685"
         graph-posY: "215"
         graph-groupLabelPos: bottom-center
-    host-A:
+    host-a:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.8
+      startup-config: "configs/host-a/startup-config"
+      binds:
+        - configs/host-a/ceos-config:/mnt/flash/ceos-config
       labels:
         graph-posX: "485"
         graph-posY: "365"
         graph-groupLabelPos: bottom-center
-    host-B:
+    host-b:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.9
+      startup-config: "configs/host-b/startup-config"
+      binds:
+        - configs/host-b/ceos-config:/mnt/flash/ceos-config
       labels:
         graph-posX: "575"
         graph-posY: "365"
         graph-groupLabelPos: bottom-center
-    host-C:
+    host-c:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.10
+      startup-config: "configs/host-c/startup-config"
+      binds:
+        - configs/host-c/ceos-config:/mnt/flash/ceos-config
       labels:
         graph-posX: "645"
         graph-posY: "365"
         graph-groupLabelPos: bottom-center
-    host-D:
+    host-d:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.11
+      startup-config: "configs/host-d/startup-config"
+      binds:
+        - configs/host-d/ceos-config:/mnt/flash/ceos-config
       labels:
         graph-posX: "715"
         graph-posY: "365"
         graph-groupLabelPos: bottom-center
-    Leaf5:
+    leaf5:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.12
+      startup-config: "configs/leaf5/startup-config"
+      binds:
+        - configs/leaf5/ceos-config:/mnt/flash/ceos-config
       labels:
         graph-posX: "615"
         graph-posY: "205"
@@ -133,19 +144,19 @@ topology:
     - endpoints: [ "spine1:eth2", "leaf2:eth1" ]
     - endpoints: [ "spine1:eth3", "leaf3:eth1" ]
     - endpoints: [ "spine1:eth4", "leaf4:eth1" ]
-    - endpoints: [ "Leaf5:eth1", "spine1:eth5" ]
+    - endpoints: [ "leaf5:eth1", "spine1:eth5" ]
     - endpoints: [ "spine2:eth1", "leaf1:eth2" ]
     - endpoints: [ "spine2:eth2", "leaf2:eth2" ]
     - endpoints: [ "spine2:eth3", "leaf3:eth2" ]
     - endpoints: [ "spine2:eth4", "leaf4:eth2" ]
-    - endpoints: [ "Leaf5:eth2", "spine2:eth5" ]
-    - endpoints: [ "CVX1:eth1", "Leaf5:eth3" ]
-    - endpoints: [ "CVX2:eth1", "Leaf5:eth4" ]
-    - endpoints: [ "CVX3:eth1", "Leaf5:eth5" ]
+    - endpoints: [ "leaf5:eth2", "spine2:eth5" ]
+    - endpoints: [ "CVX1:eth1", "leaf5:eth3" ]
+    - endpoints: [ "CVX2:eth1", "leaf5:eth4" ]
+    - endpoints: [ "CVX3:eth1", "leaf5:eth5" ]
     - endpoints: [ "leaf1:eth3", "leaf2:eth3" ]
     - endpoints: [ "leaf2:eth4", "leaf1:eth4" ]
-    - endpoints: [ "leaf1:eth5", "host-A:eth1" ]
-    - endpoints: [ "leaf2:eth5", "host-A:eth2" ]
-    - endpoints: [ "leaf2:eth6", "host-B:eth1" ]
-    - endpoints: [ "leaf3:eth3", "host-C:eth1" ]
-    - endpoints: [ "leaf4:eth3", "host-D:eth1" ]
+    - endpoints: [ "leaf1:eth5", "host-a:eth1" ]
+    - endpoints: [ "leaf2:eth5", "host-a:eth2" ]
+    - endpoints: [ "leaf2:eth6", "host-b:eth1" ]
+    - endpoints: [ "leaf3:eth3", "host-c:eth1" ]
+    - endpoints: [ "leaf4:eth3", "host-d:eth1" ]
