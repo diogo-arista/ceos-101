@@ -1,4 +1,4 @@
-! Startup-config last modified at Wed Jul  9 15:45:40 2025 by admin
+! Startup-config last modified at Wed Jul  9 16:27:11 2025 by admin
 ! device: leaf2 (cEOSLab, EOS-4.34.1F-42424637.4341F (engineering build))
 !
 aaa root nopassword
@@ -19,6 +19,8 @@ spanning-tree mode mstp
 system l1
    unsupported speed action error
    unsupported error-correction action error
+!
+vlan 10,20,30
 !
 aaa authorization exec default local
 aaa authorization commands all default local

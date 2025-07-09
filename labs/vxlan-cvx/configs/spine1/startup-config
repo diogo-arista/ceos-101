@@ -1,4 +1,4 @@
-! Startup-config last modified at Wed Jul  9 15:42:52 2025 by admin
+! Startup-config last modified at Wed Jul  9 16:27:16 2025 by admin
 ! device: spine1 (cEOSLab, EOS-4.34.1F-42424637.4341F (engineering build))
 !
 aaa root nopassword
