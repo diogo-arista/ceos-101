@@ -118,23 +118,32 @@ topology:
         graph-posX: "615"
         graph-posY: "205"
         graph-groupLabelPos: bottom-center
-    CVX1:
+    cvx1:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.13
+      startup-config: "configs/cvx1/startup-config"
+      binds:
+        - configs/cvx1/ceos-config:/mnt/flash/ceos-config
       labels:
         graph-posX: "545"
         graph-posY: "165"
         graph-groupLabelPos: bottom-center
-    CVX2:
+    cvx2:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.14
+      startup-config: "configs/cvx2/startup-config"
+      binds:
+        - configs/cvx2/ceos-config:/mnt/flash/ceos-config
       labels:
         graph-posX: "615"
         graph-posY: "135"
         graph-groupLabelPos: bottom-center
-    CVX3:
+    cvx3:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.15
+      startup-config: "configs/cvx3/startup-config"
+      binds:
+        - configs/cvx3/ceos-config:/mnt/flash/ceos-config
       labels:
         graph-posX: "685"
         graph-posY: "165"
@@ -150,9 +159,9 @@ topology:
     - endpoints: [ "spine2:eth3", "leaf3:eth2" ]
     - endpoints: [ "spine2:eth4", "leaf4:eth2" ]
     - endpoints: [ "leaf5:eth2", "spine2:eth5" ]
-    - endpoints: [ "CVX1:eth1", "leaf5:eth3" ]
-    - endpoints: [ "CVX2:eth1", "leaf5:eth4" ]
-    - endpoints: [ "CVX3:eth1", "leaf5:eth5" ]
+    - endpoints: [ "cvx1:eth1", "leaf5:eth3" ]
+    - endpoints: [ "cvx2:eth1", "leaf5:eth4" ]
+    - endpoints: [ "cvx3:eth1", "leaf5:eth5" ]
     - endpoints: [ "leaf1:eth3", "leaf2:eth3" ]
     - endpoints: [ "leaf2:eth4", "leaf1:eth4" ]
     - endpoints: [ "leaf1:eth5", "host-a:eth1" ]

@@ -11,7 +11,7 @@ topology:
     leaf1:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.2
-      startup-config: "configs/leaf1/startup-config"
+      startup-config: "configs/leaf1/lab1-completed.cfg"
       binds:
         - configs/leaf1/ceos-config:/mnt/flash/ceos-config
       labels:
@@ -21,7 +21,7 @@ topology:
     leaf2:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.3
-      startup-config: "configs/leaf2/startup-config"
+      startup-config: "configs/leaf2/lab1-completed.cfg"
       binds:
         - configs/leaf2/ceos-config:/mnt/flash/ceos-config
       labels:
@@ -31,7 +31,7 @@ topology:
     leaf3:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.4
-      startup-config: "configs/leaf3/startup-config"
+      startup-config: "configs/leaf3/lab1-completed.cfg"
       binds:
         - configs/leaf3/ceos-config:/mnt/flash/ceos-config
       labels:
@@ -41,7 +41,7 @@ topology:
     leaf4:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.5
-      startup-config: "configs/leaf4/startup-config"
+      startup-config: "configs/leaf4/lab1-completed.cfg"
       binds:
         - configs/leaf4/ceos-config:/mnt/flash/ceos-config
       labels:
@@ -51,7 +51,7 @@ topology:
     spine1:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.6
-      startup-config: "configs/spine1/startup-config"
+      startup-config: "configs/spine1/lab1-completed.cfg"
       binds:
         - configs/spine1/ceos-config:/mnt/flash/ceos-config
       labels:
@@ -61,7 +61,7 @@ topology:
     spine2:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.7
-      startup-config: "configs/spine2/startup-config"
+      startup-config: "configs/spine2/lab1-completed.cfg"
       binds:
         - configs/spine2/ceos-config:/mnt/flash/ceos-config
       labels:
@@ -71,7 +71,7 @@ topology:
     host-a:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.8
-      startup-config: "configs/host-a/startup-config"
+      startup-config: "configs/host-a/lab1-completed.cfg"
       binds:
         - configs/host-a/ceos-config:/mnt/flash/ceos-config
       labels:
@@ -81,7 +81,7 @@ topology:
     host-b:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.9
-      startup-config: "configs/host-b/startup-config"
+      startup-config: "configs/host-b/lab1-completed.cfg"
       binds:
         - configs/host-b/ceos-config:/mnt/flash/ceos-config
       labels:
@@ -91,7 +91,7 @@ topology:
     host-c:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.10
-      startup-config: "configs/host-c/startup-config"
+      startup-config: "configs/host-c/lab1-completed.cfg"
       binds:
         - configs/host-c/ceos-config:/mnt/flash/ceos-config
       labels:
@@ -101,7 +101,7 @@ topology:
     host-d:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.11
-      startup-config: "configs/host-d/startup-config"
+      startup-config: "configs/host-d/lab1-completed.cfg"
       binds:
         - configs/host-d/ceos-config:/mnt/flash/ceos-config
       labels:
@@ -111,7 +111,7 @@ topology:
     leaf5:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.12
-      startup-config: "configs/leaf5/startup-config"
+      startup-config: "configs/leaf5/lab1-completed.cfg"
       binds:
         - configs/leaf5/ceos-config:/mnt/flash/ceos-config
       labels:
@@ -121,7 +121,7 @@ topology:
     cvx1:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.13
-      startup-config: "configs/cvx1/startup-config"
+      startup-config: "configs/cvx1/lab1-completed.cfg"
       binds:
         - configs/cvx1/ceos-config:/mnt/flash/ceos-config
       labels:
@@ -131,7 +131,7 @@ topology:
     cvx2:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.14
-      startup-config: "configs/cvx2/startup-config"
+      startup-config: "configs/cvx2/lab1-completed.cfg"
       binds:
         - configs/cvx2/ceos-config:/mnt/flash/ceos-config
       labels:
@@ -141,7 +141,7 @@ topology:
     cvx3:
       kind: "arista_ceos"
       mgmt-ipv4: 172.16.20.15
-      startup-config: "configs/cvx3/startup-config"
+      startup-config: "configs/cvx3/lab1-completed.cfg"
       binds:
         - configs/cvx3/ceos-config:/mnt/flash/ceos-config
       labels:
