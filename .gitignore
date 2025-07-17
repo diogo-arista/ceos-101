@@ -5,3 +5,4 @@ cEOS-lab-*.tar.xz
 cEOSarm-lab-*.tar
 cEOSarm*.tar.xz
 .devcontainer/ceos-auto-download/.env
+.bak
