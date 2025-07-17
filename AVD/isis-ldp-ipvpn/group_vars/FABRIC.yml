@@ -1,0 +1,54 @@
+---
+# Ansible connectivity definitions
+# eAPI connectivity via HTTPS is specified (as opposed to CLI via SSH)
+ansible_connection: ansible.netcommon.httpapi
+# Specifies that we are indeed using Arista EOS
+ansible_network_os: arista.eos.eos
+# This user/password must exist on the switches to enable Ansible access
+ansible_user: arista
+ansible_password: arista
+# User escalation (to enter enable mode)
+ansible_become: true
+ansible_become_method: enable
+# Use SSL (HTTPS)
+ansible_httpapi_use_ssl: true
+# Do not try to validate certs
+ansible_httpapi_validate_certs: false
+
+# Common AVD group variables
+fabric_name: FABRIC
+
+# Generate CSVs with fabric link info.
+eos_designs_documentation:
+  topology_csv: true
+  p2p_links_csv: true
+
+# Define underlay and overlay routing protocol to be used
+underlay_routing_protocol: isis-ldp
+overlay_routing_protocol: ibgp
+
+# Local users
+local_users:
+  # Username with no password configured
+  - name: admin
+    privilege: 15
+    role: network-admin
+    no_password: true
+
+  # Username with a password
+  - name: arista
+    privilege: 15
+    role: network-admin
+    sha512_password: "$6$Enl0WfE32FthwyiJ$yTyGaEJ2uPKLU.F7314YtB7J1jrzrMi7ogXIRTEHQfLdLgKWWmr1UvNlZLN6AyuxET7G5aH3AI9OYRzxVTkB1."
+
+# BGP peer groups passwords
+bgp_peer_groups:
+  # all passwords set to "arista"
+  mpls_overlay_peers:
+    password: $1c$G8BQN0ezkiJOX2cuAYpsEA==
+  rr_overlay_peers:
+    password: $1c$G8BQN0ezkiJOX2cuAYpsEA==
+
+custom_structured_configuration_management_security:
+  password:
+    encryption_key_common: true
