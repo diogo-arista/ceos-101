@@ -7,34 +7,37 @@ topology:
       image: ghcr.io/aristanetworks/aclabs/host-ubuntu:rev1.0
   nodes:
     sw1:
-      kind: "ceos"
+      kind: ceos
       startup-config: "configs/sw1.cfg"
-      binds:
-        - shared/:/mnt/flash/shared:rw
+      binds: #        - shared/:/mnt/flash/shared:rw
+
       labels:
         graph-posX: "275"
         graph-posY: "305"
         graph-groupLabelPos: bottom-center
+      image: ceos:4.34.1F
     sw2:
-      kind: "ceos"
+      kind: ceos
       startup-config: "configs/sw2.cfg"
-      binds:
-        - shared/:/mnt/flash/shared:rw
+      binds: #        - shared/:/mnt/flash/shared:rw
+
       labels:
         graph-posX: "355"
         graph-posY: "305"
         graph-groupLabelPos: bottom-center
+      image: ceos:4.34.1F
     sw3:
-      kind: "ceos"
-      startup-config: "configs/sw2.cfg"
-      binds:
-        - shared/:/mnt/flash/shared:rw
+      kind: ceos
+      startup-config: "configs/sw3.cfg"
+      binds: #        - shared/:/mnt/flash/shared:rw
+
       labels:
         graph-posX: "315"
         graph-posY: "245"
         graph-groupLabelPos: bottom-center
+      image: ceos:4.34.1F
     host1:
-      kind: "linux"
+      kind: linux
       env:
         IPV4: 10.10.10.101/24
         STATIC_ROUTE: 10.0.0.0/8
@@ -43,8 +46,9 @@ topology:
         graph-posX: "275"
         graph-posY: "375"
         graph-groupLabelPos: bottom-center
+      image: ghcr.io/aristanetworks/aclabs/host-ubuntu:rev1.0
     host2:
-      kind: "linux"
+      kind: linux
       env:
         IPV4: 10.20.20.102/24
         STATIC_ROUTE: 10.0.0.0/8
@@ -53,9 +57,11 @@ topology:
         graph-posX: "355"
         graph-posY: "375"
         graph-groupLabelPos: bottom-center
+      image: ghcr.io/aristanetworks/aclabs/host-ubuntu:rev1.0
   links:
-    - endpoints: [ "host1:eth1", "sw1:eth2" ]
-    - endpoints: [ "sw2:eth2", "host2:eth1" ]
-    - endpoints: [ "sw1:eth1", "sw2:eth1" ]
-    - endpoints: [ "sw1:eth3", "sw3:eth1" ]
-    - endpoints: [ "sw2:eth3", "sw3:eth2" ]
+    - endpoints: [ host1:eth1, sw1:eth2 ]
+    - endpoints: [ sw2:eth2, host2:eth1 ]
+    - endpoints: [ sw1:eth1, sw2:eth1 ]
+    - endpoints: [ sw1:eth3, sw3:eth1 ]
+    - endpoints: [ sw2:eth3, sw3:eth2 ]
+    - endpoints: [ sw1:eth4, sw2:eth4 ]
