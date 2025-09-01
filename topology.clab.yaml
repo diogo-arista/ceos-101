@@ -2,12 +2,12 @@ name: sample
 prefix: "" 
 topology:
   kinds:
-    ceos:
+    arista_ceos:
       image: ceos:4.34.1F
   nodes:
     ceos1:
-      kind: ceos 
+      kind: arista_ceos 
     ceos2:
-      kind: ceos
+      kind: arista_ceos
   links:
     - endpoints: ["ceos1:eth1", "ceos2:eth1"]
