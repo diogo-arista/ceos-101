@@ -3,7 +3,7 @@ prefix: ""
 topology:
   kinds:
     arista_ceos:
-      image: ceos:4.34.1F
+      image: ceos:latest
   nodes:
     ceos1:
       kind: arista_ceos 
